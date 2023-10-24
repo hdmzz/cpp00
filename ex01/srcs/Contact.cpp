@@ -6,11 +6,12 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:44:09 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 03:56:45 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:19:09 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Contact.hpp>
+#include <iomanip>
 //Constructor
 Contact::Contact(void) : _firstName(""),
 					_lastName(""),
@@ -60,14 +61,6 @@ int			Contact::setFirstName(std::string name)
 		return (0);
 	}
 	name[0] = std::toupper(name[0]);
-	if (name.length() < 10) {
-		int numSpaces = 10 - name.length();
-		name.append(numSpaces, ' ');
-	}
-	if (name.length() > 10) {
-		name = name.substr(0, 10);
-		name[9] = '.';
-	}
 	this->_firstName = name;
 	return (1);
 }
@@ -82,14 +75,6 @@ int			Contact::setLastName(std::string lastname)
 		return (0);
 	}
 	lastname[0] = std::toupper(lastname[0]);
-	if (lastname.length() < 10) {
-		int numSpaces = 10 - lastname.length();
-		lastname.append(numSpaces, ' ');
-	}
-	if (lastname.length() > 10) {
-		lastname = lastname.substr(0, 10);
-		lastname[9] = '.';
-	}
 	this->_lastName = lastname;
 	return (1);
 }
@@ -104,14 +89,6 @@ int			Contact::setNickName(std::string nickname)
 		return (0);
 	}
 	nickname[0] = std::toupper(nickname[0]);
-	if (nickname.length() < 10) {
-		int numSpaces = 10 - nickname.length();
-		nickname.append(numSpaces, ' ');
-	}
-	if (nickname.length() > 10) {
-		nickname = nickname.substr(0, 10);
-		nickname[9] = '.';
-	}
 	this->_nickName = nickname;
 	return (1);
 }
@@ -159,4 +136,13 @@ int			Contact::_containsOnlyDigits(std::string const input) const
 			return (0);
 	}
 	return (1);
+}
+
+void		Contact::printContact(void) const//a appelr pour chaque element du tableau de contact
+{
+	std::cout << "Firstname\t: " << this->_firstName << std::endl;
+	std::cout << "Lastname\t: " << this->_lastName << std::endl;
+	std::cout << "Nickname\t: " << this->_nickName << std::endl;
+	std::cout << "Phone number\t: " << this->_phoneNumber << std::endl;
+	std::cout << "Darkest secret\t: " << this->_darkestSecret << std::endl;
 }

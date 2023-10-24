@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:00:41 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 02:18:29 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 08:37:35 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ private:
 	int				_break;
 	Contact			_contacts[8];
 
+	void			_printLine(std::string str);
 	std::string		_getInput(std::string const prompt);
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	int	addContact(void);//demandera a luser de rentrer le nom du gqrs et tout
-	int	showContact(void);
+	int		addContact(void);//demandera a luser de rentrer le nom du gqrs et tout
+	int		showContact(void);
 }; 
 
 #endif

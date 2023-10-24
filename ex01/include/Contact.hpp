@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:24:01 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 01:06:01 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:17:23 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ private:
 
 	int			_containsOnlyAlpha(std::string const input) const;
 	int			_containsOnlyDigits(std::string const input) const;
+	//une fonction qui affiche les details du contact qui puisse etre appeller pour chaque element d'un tableau de contact
 public:
 	Contact();
 	~Contact();
@@ -45,7 +46,9 @@ public:
 	int			setLastName(std::string lastname);
 	int			setNickName(std::string nickname);
 	int			setPhoneNumber(std::string number);
-	int			setSecret(std::string secret); 
+	int			setSecret(std::string secret);
+
+	void		printContact(void) const;
 };
 
 #endif
