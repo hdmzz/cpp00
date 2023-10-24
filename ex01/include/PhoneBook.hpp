@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:00:41 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 08:37:35 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:27:28 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,10 @@
 # define PROMPT_ONE "+---------------- Main Menu ----------------+"
 # define PROMPT_TWO "What do you want to do > "
 
-/*
-• PhoneBook
-◦ Représente le répertoire.
-◦ Contient un tableau de contacts.
-◦ Peut enregistrer 8 contacts maximum. Si l’utilisateur tente d’ajouter un 9ème
-contact, remplacez le plus ancien par celui-ci.
-◦ Notez que l’allocation dynamique est interdite
-*/
-
 class PhoneBook
 {
 private:
-	int				_numberOfContacts;//servira a sqvoir combien on a de contact
+	int				_numberOfContacts;
 	int				_break;
 	Contact			_contacts[8];
 
@@ -39,7 +30,7 @@ private:
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	int		addContact(void);//demandera a luser de rentrer le nom du gqrs et tout
+	int		addContact(void);
 	int		showContact(void);
 }; 
 

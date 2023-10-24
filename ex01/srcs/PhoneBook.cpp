@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:01:17 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 10:13:01 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:32:28 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,13 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 	std::string	inputIndex;
 	int			index;
 
-	for (int i = 0; i <= _numberOfContacts; i++) {
-		std::cout	<< "+----------+----------+----------+----------+" << std::endl
-				<< "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
-				<< "+----------+----------+----------+----------+" << std::endl;
+	std::cout	<< "+----------+----------+----------+----------+" << std::endl
+			<< "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
+			<< "+----------+----------+----------+----------+" << std::endl;
+
+	for (int i = 0; i < 9; i++) {
+		if (this->_contacts[i].getFirstName().empty())
+			break ;
 		std::cout << '|' << std::setw(10) << i << '|';
 		_printLine(this->_contacts[i].getFirstName());
 		_printLine(this->_contacts[i].getLastName());
@@ -103,7 +106,10 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 		if (inputIndex.length() == 1 && isdigit(inputIndex[0]))
 			index = inputIndex[0] - '0';
 		else
+		{
+			std::cout << "Error, index should be a number between 0 and 9" << std::endl;
 			return (0);
+		}
 		this->_contacts[index].printContact();
 	}
 	return (1);
