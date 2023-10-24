@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:01:17 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/25 15:27:57 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:46:45 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ std::string PhoneBook::_getInput(std::string const prompt)
 	std::string	input;
 
 	std::cout << prompt;
-	if (!std::getline(std::cin, input))
+	if (!std::getline(std::cin, input) || std::cin.eof())
+	{
+		_break = 1;
 		return (std::string());
+	}
 	return (input);
 }
 
@@ -86,6 +89,11 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 	std::string	inputIndex;
 	int			index;
 
+	if (this->_numberOfContacts == -1)
+	{
+		std::cout << "No contact to display" << std::endl;
+		return (0);
+	}
 	std::cout	<< "+----------+----------+----------+----------+" << std::endl
 			<< "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
 			<< "+----------+----------+----------+----------+" << std::endl;
@@ -99,7 +107,6 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 		_printLine(this->_contacts[i].getNickName());
 		std::cout << std::endl << "+----------+----------+----------+----------+" << std::endl;
 	}
-
 	inputIndex = _getInput("Enter the index of the contact you want to display: ");
 	if (!inputIndex.empty()) {
 		if (inputIndex.length() == 1 && isdigit(inputIndex[0]))

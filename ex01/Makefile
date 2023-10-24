@@ -3,7 +3,7 @@ S		= srcs/
 HEADERS = ./include/Contact.hpp ./include/PhoneBook.hpp
 
 CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
 
 SRC		= $SContact.cpp $SPhoneBook.cpp $Smain.cpp
 
@@ -11,10 +11,10 @@ OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADERS)
+$(NAME): $(OBJ) $(HEADERS) Makefile
 	$(CC) $(CFLAGS) $(OBJ) -o $@ -I ./include
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp $(HEADERS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ -I ./include
 
 clean:
