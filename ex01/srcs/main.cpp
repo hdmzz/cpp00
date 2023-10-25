@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 23:43:44 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 09:48:40 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:19:06 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ std::string	getInput(void)
 
 int	main(void)
 {
-	
 	PhoneBook	book;
-	//il faut recuperer le userinput et agir en fonctione de de l'input
 	std::string	input;
 
 	while (1)

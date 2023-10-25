@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:01:17 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 10:32:28 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:27:57 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 			<< "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
 			<< "+----------+----------+----------+----------+" << std::endl;
 
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (this->_contacts[i].getFirstName().empty())
 			break ;
 		std::cout << '|' << std::setw(10) << i << '|';
@@ -102,9 +102,8 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 
 	inputIndex = _getInput("Enter the index of the contact you want to display: ");
 	if (!inputIndex.empty()) {
-		//verifier que l'index soit bien un nombre entre 0 et 9 donc de len 1 et que ce soit bien un digit
 		if (inputIndex.length() == 1 && isdigit(inputIndex[0]))
-			index = inputIndex[0] - '0';
+			index = (inputIndex[0] - '0');
 		else
 		{
 			std::cout << "Error, index should be a number between 0 and 9" << std::endl;
