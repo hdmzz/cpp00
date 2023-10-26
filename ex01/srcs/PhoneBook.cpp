@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:01:17 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 16:46:45 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:22:05 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,21 @@ int		PhoneBook::showContact(void)//en premier lieux affiche la liste des contact
 		_printLine(this->_contacts[i].getNickName());
 		std::cout << std::endl << "+----------+----------+----------+----------+" << std::endl;
 	}
+
 	inputIndex = _getInput("Enter the index of the contact you want to display: ");
 	if (!inputIndex.empty()) {
 		if (inputIndex.length() == 1 && isdigit(inputIndex[0]))
+		{
 			index = (inputIndex[0] - '0');
+			if (index > this->_numberOfContacts)
+			{
+				std::cout << "Error, no contact for this index" << std::endl;
+				return (0);
+			}
+		}
 		else
 		{
-			std::cout << "Error, index should be a number between 0 and 9" << std::endl;
+			std::cout << "Error, index should be a number between 0 and 7" << std::endl;
 			return (0);
 		}
 		this->_contacts[index].printContact();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 23:43:44 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/10/24 16:28:10 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:15:47 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ int	main(void)
 		if (input == "EXIT") 
 			return (0);
 	}
+	return (0);
 }
